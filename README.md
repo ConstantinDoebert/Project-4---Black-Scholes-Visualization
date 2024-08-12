@@ -5,4 +5,4 @@ Comprehenisve library for pricing European and CON-options.<br/>
 Numerical scenario analysis and option greeks behaviour.<br/>
 PnL visualization of various strategies.<br/><br/>
 
-Theoretical fundament: Prof. Claudio Pacati, University of Siena.
+Theoretical foundation: Prof. Claudio Pacati, University of Siena.
