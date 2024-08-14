@@ -1,3 +1,4 @@
+
 # ----------------------- standard imports ---------------------------------- #
 
 # for statistical functions
@@ -14,7 +15,9 @@ import warnings
 
 # ----------------------- sub-modules imports ------------------------------- #
 
-from ..utils.utils import *
+from utils.utils import *
+from utils.numeric_routines import *
+from market.market import *
 
 
 # -----------------------------------------------------------------------------#
@@ -101,7 +104,7 @@ class EuropeanOption:
 
     """
 
-    def __init__(self, mkt_env, option_type='call', K=100.0, T="31-12-2020"):
+    def __init__(self, mkt_env, option_type='call', K=100.0, T="08-09-2024"):
 
         print("Initializing the EuropeanOption!")
 

@@ -1,6 +1,6 @@
 # ----------------------- sub-modules imports ------------------------------- #
 
-from ..utils.utils import date_string_to_datetime_obj
+from utils.utils import date_string_to_datetime_obj
 
 
 # -----------------------------------------------------------------------------#
@@ -29,12 +29,12 @@ class MarketEnvironment:
     Instantiation: 
     --------   
         - default: MarketEnvironment() is equivalent to 
-                   MarketEnvironment(t="19-04-2020", r=0.05, S_t=90.0, sigma=0.2)
+                   MarketEnvironment(t="12-08-2024", r=0.0375, S_t=110.0, sigma=0.5)
 
         - general: MarketEnvironment(t="DD-MM-YYYY" String, r=Float, S_t=Float, sigma=Float)
     """
 
-    def __init__(self, t="19-04-2020", r=0.05, S_t=90.0, sigma=0.2):
+    def __init__(self, t="12-08-2024", r=0.0375, S_t=110.0, sigma=0.5):
         print("Initializing the MarketEnvironment!")
 
         self.__t = date_string_to_datetime_obj(t)
@@ -43,7 +43,7 @@ class MarketEnvironment:
         self.__sigma = sigma
 
     def __repr__(self):
-        return r"MarketEnvironment(t={}, r={:.1f}%, S_t={:.1f}, sigma={:.1f}%)". \
+        return "MarketEnvironment(t={}, r={:.1f}%, S_t={:.1f}, sigma={:.1f}%)". \
             format(self.get_t().strftime("%d-%m-%Y"), self.get_r() * 100, self.get_S(), self.get_sigma() * 100)
 
     # getters

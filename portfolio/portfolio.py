@@ -4,7 +4,10 @@ import numpy as np
 
 # ----------------------- sub-modules imports ------------------------------- #
 
-from ..utils.utils import *
+from utils.utils import *
+from utils.numeric_routines import *
+from market.market import *
+from options.options import *
 
 
 # -----------------------------------------------------------------------------#
