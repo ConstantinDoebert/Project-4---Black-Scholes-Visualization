@@ -1,6 +1,6 @@
 # ----------------------- sub-modules imports ------------------------------- #
 
-from utils.utils import date_string_to_datetime_obj
+from utils.utils import date_string_to_datetime_obj, date_today, get_ecb_rates
 
 
 # -----------------------------------------------------------------------------#
@@ -29,12 +29,12 @@ class MarketEnvironment:
     Instantiation: 
     --------   
         - default: MarketEnvironment() is equivalent to 
-                   MarketEnvironment(t="12-08-2024", r=0.0375, S_t=110.0, sigma=0.5)
+                   MarketEnvironment(t=today, r=current ecb's deposit facility rate, S_t=124, sigma=0.617)
 
         - general: MarketEnvironment(t="DD-MM-YYYY" String, r=Float, S_t=Float, sigma=Float)
     """
 
-    def __init__(self, t="12-08-2024", r=0.0375, S_t=110.0, sigma=0.5):
+    def __init__(self, t=date_today(), r=get_ecb_rates(), S_t=124.0, sigma=0.617):
         print("Initializing the MarketEnvironment!")
 
         self.__t = date_string_to_datetime_obj(t)

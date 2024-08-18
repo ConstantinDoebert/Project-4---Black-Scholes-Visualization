@@ -104,7 +104,7 @@ class EuropeanOption:
 
     """
 
-    def __init__(self, mkt_env, option_type='call', K=100.0, T="08-09-2024"):
+    def __init__(self, mkt_env, option_type='call', K=120.0, T="01-09-2024"):
 
         print("Initializing the EuropeanOption!")
 

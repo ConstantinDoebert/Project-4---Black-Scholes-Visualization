@@ -17,6 +17,12 @@ import matplotlib.dates as mpl_dates
 # to identify iterable data-structures
 from collections.abc import Iterable
 
+# to parse json
+import json
+
+# to retrieve ecb key rates
+from requests import get
+
 
 # -----------------------------------------------------------------------------#
 
@@ -654,3 +660,33 @@ def plot(x, f, **kwargs):
     # show the plot
     fig.tight_layout()
     plt.show()
+
+# -----------------------------------------------------------------------------#
+
+def date_today():
+    return dt.datetime.strftime(dt.datetime.today(), "%d-%m-%Y")
+
+# -----------------------------------------------------------------------------#
+
+def get_ecb_rates():
+    '''
+    Docs: https://data.ecb.europa.eu/help/api/overview
+    Data directory: https://data.ecb.europa.eu/data/datasets
+    '''
+    entrypoint = 'https://data-api.ecb.europa.eu/service/'
+    resource = 'data'           # The resource for data queries is always'data'. Do not change.
+    flowRef ='FM'              # Repsonsible agency for maintaining data freed
+    key = 'D.U2.EUR.4F.KR.DFR.LEV' # https://data.ecb.europa.eu/data/datasets/FM/FM.D.U2.EUR.4F.KR.DFR.LEV
+        
+    
+    parameters = {
+        'startPeriod': dt.datetime.strftime(dt.datetime.today(), "%Y-%m-%d"),
+        'format': 'jsondata'
+    }
+
+    request_url = entrypoint + resource + '/'+ flowRef + '/' + key
+
+    response = get(request_url, params=parameters).json()
+    deposit_facility = response["dataSets"][0]["series"]["0:0:0:0:0:0:0"]["observations"]["0"][0] / 100
+
+    return deposit_facility
